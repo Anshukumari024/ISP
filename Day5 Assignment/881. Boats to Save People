@@ -1,0 +1,20 @@
+class Solution {
+    public int numRescueBoats(int[] people, int limit) {
+        Arrays.sort(people);
+        int l=0;
+        int r=people.length-1;
+        int b=0;
+        while(l<=r){
+            if(people[r]+people[l]<=limit){
+                l++;
+            }
+            r--;
+            b++;
+
+        }
+        return b;
+        
+    }
+}
+TC-->O(n log n)
+SC-->O(1)
