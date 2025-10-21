@@ -1,0 +1,31 @@
+class MinStack {
+    private List<int[]> st;
+
+    public MinStack() {
+        st = new ArrayList<>();
+    }
+
+    public void push(int val) {
+        int[] top = st.isEmpty() ? new int[] { val, val } : st.get(st.size() - 1);
+        int mv = top[1];
+        if (mv > val) {
+            mv = val;
+        }
+        st.add(new int[] { val, mv });
+    }
+
+    public void pop() {
+        st.remove(st.size() - 1);
+    }
+
+    public int top() {
+        return st.isEmpty() ? -1 : st.get(st.size() - 1)[0];
+    }
+
+    public int getMin() {
+        return st.isEmpty() ? -1 : st.get(st.size() - 1)[1];
+    }
+}
+
+TC-->O(1)
+SC-->O(N)
